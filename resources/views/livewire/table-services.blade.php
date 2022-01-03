@@ -4,7 +4,7 @@
             <div class="card-body">
                 <div class="section-title-page">
                     <h4 class="card-title"
-                        style="margin-top: 10px; font-size: 16px; font-weight: bold;">{{$services}}</h4>
+                        style="margin-top: 10px; font-size: 16px; font-weight: bold;">{{$services}} - {{$teste}}</h4>
                     <div class="new-service-div">
 
                         <a href="" class="btn btn-outline-success waves-effect waves-light">
@@ -35,20 +35,21 @@
                                 <th style="text-align: center;">Usuário da Última Alteração</th>
                             </tr>
                         </thead>
-                        <tbody>
+                       
+                        <tbody x-data>
                             <tr data-id="1">
 
                                 <td style="width: 100px">
                                     <center>
                                         <a class="btn btn-outline-secondary btn-sm edit"
-                                            title="Editar">
+                                            title="Editar"  >
                                             <i class="fas fa-pencil-alt"></i>
                                         </a>
                                     </center>
                                 </td>
-                                <td style="text-align: center;" data-field="employer">Empresa #1
+                                <td style="text-align: center;" data-field="employer"><input type="text" placeholder="empresa">
                                 </td>
-                                <td style="text-align: center;" data-field="status">Ativo</td>
+                                <td style="text-align: center;" data-field="status"><input type="text" placeholder="ativo"></td>
                                 <td style="text-align: center;" data-field="user">E-mail</td>
                                 <td style="text-align: center;" data-field="date">Data</td>
                                 <td style="text-align: center;" data-field="category">Categoria</td>

@@ -1,9 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
-
-
-{{-- <div class="row">
+<div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
@@ -40,28 +35,29 @@
                                 <th style="text-align: center;">Usuário da Última Alteração</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr data-id="1">
+                       
+                        <tbody x-data>
+                            <tr data-id="1" x-data>
 
                                 <td style="width: 100px">
                                     <center>
                                         <a class="btn btn-outline-secondary btn-sm edit"
-                                            title="Editar">
+                                            title="Editar" x-on:click="teste" >
                                             <i class="fas fa-pencil-alt"></i>
                                         </a>
                                     </center>
                                 </td>
-                                <td style="text-align: center;" data-field="employer">Empresa #1
+                                <td style="text-align: center;" data-employer data-field="employer" x-on:dblclick="teste1">empresa
                                 </td>
-                                <td style="text-align: center;" data-field="status">Ativo</td>
-                                <td style="text-align: center;" data-field="user">E-mail</td>
-                                <td style="text-align: center;" data-field="date">Data</td>
-                                <td style="text-align: center;" data-field="category">Categoria</td>
-                                <td style="text-align: center;" data-field="title">Título</td>
-                                <td style="text-align: center;" data-field="price">Preço</td>
-                                <td style="text-align: center;" data-field="date-lastchange">Data
+                                <td style="text-align: center;" data-field="status" x-on:dblclick="teste1">ativo</td>
+                                <td style="text-align: center;" data-field="user" x-on:dblclick="teste1">E-mail</td>
+                                <td style="text-align: center;" data-field="date" x-on:dblclick="teste1">Data</td>
+                                <td style="text-align: center;" data-field="category" x-on:dblclick="teste1">Categoria</td>
+                                <td style="text-align: center;" data-field="title" x-on:dblclick="teste1">Título</td>
+                                <td style="text-align: center;" data-field="price" x-on:dblclick="teste1">Preço</td>
+                                <td style="text-align: center;" data-field="date-lastchange" x-on:dblclick="teste1">Data
                                 </td>
-                                <td style="text-align: center;" data-field="user-lastchange">Usuário
+                                <td style="text-align: center;" data-field="user-lastchange" x-on:dblclick="teste1">Usuário
                                 </td>
 
                             </tr>
@@ -211,10 +207,58 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
-</div> --}}
+</div>
+<script>
+    
 
-{{-- @livewire('table-services') --}}
-{{-- <livewire:teste></livewire:teste> --}}
-@include('components.table-services')
+    let inputOpen = false
 
-@endsection
+    console.log("testando =>   teste ", inputOpen)
+
+    function teste(){
+
+        if(inputOpen == true){
+
+            console.log("enviar informaçoes")
+            console.log(inputOpen)
+
+            field = document.querySelectorAll('[data-field]')
+
+            // field = Array.from(fields)
+            // console.log(field)
+            // console.log(field[0].innerHTML.value)
+            // console.log(field[0].innerHTML.value)
+            // console.log(field[0].textContent)
+
+
+            console.log(field[0].dataset.field)
+            console.log(field[1].dataset.field)
+            console.log(field[1].innerText)
+            console.log(field[3].innerText)
+            console.log(field)
+            console.log(field[0].firstChild)
+
+            console.log(field[0].dataset.employer)
+            console.log(field[0].dataset.field.innerText)
+
+            inputOpen = false
+        }else{
+            console.log("abrir para alterar")
+            inputOpen = true
+
+            console.log(inputOpen)
+        }
+
+        
+    }
+
+
+    function teste1(){
+        console.log("testando segundo click")
+
+        inputOpen = true
+        console.log(inputOpen)
+    }
+
+
+</script>    
